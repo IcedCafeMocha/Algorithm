@@ -1,0 +1,6 @@
+N = int(input())
+T = input()
+temp1 = T.split()
+temp2 = list(map(int,temp1))
+temp2.sort()
+print(temp2[N//2])
