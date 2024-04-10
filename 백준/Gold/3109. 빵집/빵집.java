@@ -47,8 +47,6 @@ public class Main {
 			int CR = r + dr[i];
 			int CC = c + dc[i];
 			
-			if(flag) return;
-			
 			if(CR < 0) continue;
 			if(CC < 0) continue;
 			if(CR >= R) continue;
@@ -57,10 +55,10 @@ public class Main {
 			if(map[CR][CC]) continue;
 			if(visited[CR][CC]) continue;
 			
-			
 //			System.out.println("R: "+CR+" C: "+CC+" 로 이동할게!");
 			visited[CR][CC] = true;
 			buildPipeline(CR, CC);
+			if(flag) return;
 		}
 	}
 }
