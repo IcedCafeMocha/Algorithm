@@ -48,7 +48,7 @@ public class Main {
 
 	// 다음으로 먹을 물고기 찾기
 	static void find(int R, int C) {
-		int find_que_size , CR, CC, distance=1;
+		int find_que_size , CR, CC, distance=1, MAX=0;
 		int[] temp;
 		find_que.offer(new int[] {R, C});
 		reset(find_map);
@@ -75,6 +75,8 @@ public class Main {
 					visited_find[CR][CC] = true;
 					if(map[CR][CC] != 0) {
 						find_map[CR][CC] = distance;
+						if(MAX<distance)
+							MAX = distance;
 					}
 					find_que.offer(new int[] {CR, CC});
 				}
@@ -84,7 +86,7 @@ public class Main {
 		
 		reset(visited_find);
 		
-		for(int d=1; d<N*N; d++) {
+		for(int d=1; d<=MAX; d++) {
 			for(int r=0; r<N; r++) {
 				for(int c=0; c<N; c++) {
 					if(!visited_find[r][c] && find_map[r][c]==d) {
